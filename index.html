@@ -3,27 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
+    <title>刘禧杰 - 个人主页</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自定义平滑滚动和背景动画 */
+        html { scroll-behavior: smooth; }
+        .bg-animated {
+            background: linear-gradient(-45deg, #f0fdf4, #e0f2fe, #f5f3ff, #fdf4ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-animated text-gray-800 font-sans min-h-screen">
 
-    <header class="pt-20 pb-12 px-4 text-center bg-white shadow-sm">
-        <h1 class="text-4xl font-extrabold mb-4" id="myName">加载中...</h1>
-        <p class="text-xl text-gray-500 mb-6" id="myTitle">加载中...</p>
-        <p class="max-w-2xl mx-auto text-gray-600" id="myDesc">加载中...</p>
+    <nav class="fixed w-full bg-white/60 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <span class="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600" id="navName">加载中...</span>
+            <div class="space-x-8 text-sm font-medium text-gray-600">
+                <a href="#resume" class="hover:text-blue-600 transition-colors">个人简历</a>
+                <a href="#portfolio" class="hover:text-blue-600 transition-colors">项目作品</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-4 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900 tracking-tight" id="myName">加载中...</h1>
+        <p class="inline-block bg-white shadow-md px-8 py-3 rounded-full text-xl text-blue-700 font-bold mb-8 border border-blue-50" id="myTitle">加载中...</p>
     </header>
 
-    <section class="py-16">
+    <section id="resume" class="py-16">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 border-l-4 border-blue-500 pl-3">我的作品集</h2>
-            <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-shadow duration-500">
+                <div class="w-full md:w-1/3 shrink-0">
+                    <img id="resumeImage" src="" alt="简历形象" class="w-full h-80 object-cover rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h2 class="text-3xl font-extrabold mb-4 text-gray-800">关于我 / 个人简历</h2>
+                    <h3 class="text-xl text-blue-600 font-semibold mb-4" id="resumeHighlight">加载中...</h3>
+                    <p class="text-gray-600 leading-loose text-lg mb-6" id="resumeContent">加载中...</p>
+                    <div class="flex gap-4">
+                        <span class="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium">数据分析</span>
+                        <span class="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg text-sm font-medium">跨部门协同</span>
+                        <span class="px-4 py-2 bg-pink-50 text-pink-600 rounded-lg text-sm font-medium">渠道发行</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-8 bg-gray-900 text-white text-center">
-        <p>联系我：<span id="myEmail" class="text-blue-400">加载中...</span></p>
+    <section id="portfolio" class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold mb-12 text-center text-gray-800">项目实战与复盘</h2>
+            <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </div>
+    </section>
+
+    <footer class="py-12 mt-12 bg-gray-900 text-center">
+        <p class="text-gray-400 font-medium text-lg">期待交流与合作：<span id="myEmail" class="text-blue-400 font-bold">加载中...</span></p>
     </footer>
 
     <script>
@@ -31,46 +74,63 @@
         const siteData = {
             name: "刘禧杰",
             title: "资深产品运营",
-            description: "拥有丰富的跨部门协同与渠道发行经验，擅长数据分析与平台生态运营。",
-            email: "yourname@example.com"
+            email: "您的邮箱@example.com"
         };
 
-        // 2. 作品集数据配置（每次有新作品，就在这里面加一段）
+        // 2. 简历模块配置（新增）
+        const resumeData = {
+            // 请在此处替换为你的个人形象照或简历截图的网络链接
+            image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80", 
+            // 简历核心亮点（一句话总结）
+            highlight: "深耕游戏发行与项目运营，熟悉多元平台生态分发。",
+            // 简历详细介绍
+            content: "负责项目汇报、分发渠道管理（涵盖微信小游戏、H5及安卓生态）及跨部门协同。对整体市场大盘进度、每日营收缺口及商业化机制（如拉收活动、系统拓展等）有敏锐的数据嗅觉与实操经验，致力于通过数据驱动打通业务线流转。"
+        };
+
+        // 3. 项目作品集配置
         const myWorks = [
             {
-                title: "某游戏公测发行复盘",
-                desc: "全面梳理了各包体的活跃情况与渠道转化率，为后续推更提供数据支撑。",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" // 这里换成你的图片链接
+                title: "活跃包体审核与推更全案",
+                desc: "全面梳理当前活跃包体，逐一记录版本号、所属渠道及备案状态，形成详尽清单，为后续规模化推更提供精准的针对性跟踪依据。",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
             },
             {
-                title: "平台活动落地策划",
-                desc: "主导平台会员奖励配置与验收，打通了游戏内与平台侧的交互闭环。",
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80"
+                title: "平台会员活动落地与验收",
+                desc: "主导平台会员奖励相关内容的落地工作，推进整体流程从游戏内策略配置到平台侧验收的多轮对接与调整，打通转化闭环。",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
             },
             {
-                title: "大盘营收监控模型",
-                desc: "搭建每日流水缺口监控看板，精准定位进度落后原因。",
-                image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80"
+                title: "大盘进度与流水监控模型",
+                desc: "搭建精细化数据看板，监控每日营收缺口与KPI完成度。曾准确定位时间进度落后风险，并针对冲刺挑战提供有效的运营策略支撑。",
+                image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80"
             }
         ];
 
         // =================================================================
-        // 下面的代码是“自动渲染引擎”，不用管它，绝对不要改！
+        // 渲染引擎 (不需要修改)
         // =================================================================
+        document.getElementById('navName').innerText = siteData.name;
         document.getElementById('myName').innerText = siteData.name;
         document.getElementById('myTitle').innerText = siteData.title;
-        document.getElementById('myDesc').innerText = siteData.description;
         document.getElementById('myEmail').innerText = siteData.email;
 
+        // 渲染简历模块
+        document.getElementById('resumeImage').src = resumeData.image;
+        document.getElementById('resumeHighlight').innerText = resumeData.highlight;
+        document.getElementById('resumeContent').innerText = resumeData.content;
+
+        // 渲染作品集
         const container = document.getElementById('portfolio-container');
         myWorks.forEach(work => {
             const card = document.createElement('div');
-            card.className = "bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300";
+            card.className = "bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-white hover:-translate-y-2 hover:shadow-[0_15px_30px_rgb(0,0,0,0.1)] transition-all duration-300 group";
             card.innerHTML = `
-                <img src="${work.image}" class="w-full h-48 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-lg mb-2">${work.title}</h3>
-                    <p class="text-gray-600 text-sm">${work.desc}</p>
+                <div class="overflow-hidden rounded-xl mb-5 relative">
+                    <img src="${work.image}" class="w-full h-52 object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+                <div class="px-2 pb-3">
+                    <h3 class="font-extrabold text-xl mb-3 text-gray-900">${work.title}</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">${work.desc}</p>
                 </div>
             `;
             container.appendChild(card);
