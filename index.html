@@ -3,174 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘禧杰 - 资深产品运营</title>
+    <title>刘禧杰 - 产品运营专家</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 核心视觉设定 */
         html { scroll-behavior: smooth; }
-        /* 科技感极光渐变背景 */
-        .bg-tech {
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-            position: relative;
-            overflow-x: hidden;
+        body { 
+            background-color: #FFFFFF; 
+            color: #1A1A1A; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
-        .bg-tech::before {
-            content: '';
-            position: absolute;
-            top: -20%; left: -10%; width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%);
-            z-index: -1;
+        
+        /* 专属科技蓝调色板 */
+        .tech-primary { color: #0A2540; }
+        .bg-tech-primary { background-color: #0A2540; }
+        .border-tech-primary { border-color: #0A2540; }
+        .hover-tech-secondary:hover { background-color: #003366; }
+
+        /* 极简风特有的图像处理：默认稍微降低饱和度/明度，悬浮时恢复，增加高级感 */
+        .editorial-image {
+            filter: grayscale(20%) contrast(110%);
+            transition: all 0.5s ease;
         }
-        .bg-tech::after {
-            content: '';
-            position: absolute;
-            bottom: -20%; right: -10%; width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(52,211,153,0.15) 0%, transparent 70%);
-            z-index: -1;
+        .group:hover .editorial-image {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.02);
         }
     </style>
 </head>
-<body class="bg-tech text-slate-800 font-sans min-h-screen">
+<body class="w-full flex flex-col items-center">
 
-    <nav class="fixed w-full bg-white/70 backdrop-blur-lg shadow-sm z-50 border-b border-white/50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <span class="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-blue-600" id="navName">加载中...</span>
-            <div class="space-x-8 text-sm font-bold text-slate-600">
-                <a href="#resume" class="hover:text-cyan-600 transition-colors">关于我</a>
-                <a href="#portfolio" class="hover:text-cyan-600 transition-colors">核心项目</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="pt-32 pb-16 px-4 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight" id="myName">加载中...</h1>
-        <p class="inline-block bg-white shadow-lg shadow-blue-500/10 px-8 py-3 rounded-full text-xl text-cyan-700 font-bold mb-6 border border-cyan-100" id="myTitle">加载中...</p>
-        <p class="max-w-2xl mx-auto text-slate-600 leading-relaxed text-lg mb-8" id="myDesc">加载中...</p>
-        
-        <a id="globalResumeBtn" href="#" target="_blank" class="hidden inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-bold shadow-lg shadow-cyan-500/30 hover:scale-105 transition-transform duration-300">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-            下载完整简历 (PDF)
-        </a>
-    </header>
-
-    <section id="resume" class="py-16">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="bg-white/80 backdrop-blur-xl rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-white p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center hover:shadow-2xl transition-shadow duration-500">
-                <div class="w-full md:w-1/3 shrink-0">
-                    <img id="resumeImage" src="" alt="简历形象" class="w-full h-80 object-cover rounded-3xl shadow-lg ring-4 ring-white transform hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="w-full md:w-2/3">
-                    <h2 class="text-3xl font-extrabold mb-4 text-slate-800">专业技能与优势</h2>
-                    <h3 class="text-xl text-cyan-600 font-bold mb-4" id="resumeHighlight">加载中...</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg mb-6" id="resumeContent">加载中...</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-sm font-bold border border-slate-200">全周期产品运营</span>
-                        <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-xl text-sm font-bold border border-blue-100">数据分析(数数)</span>
-                        <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-xl text-sm font-bold border border-emerald-100">商业化落地</span>
-                        <span class="px-4 py-2 bg-purple-50 text-purple-700 rounded-xl text-sm font-bold border border-purple-100">跨部门协同</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-16">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-extrabold mb-12 text-center text-slate-800">核心业务复盘</h2>
-            <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                </div>
-        </div>
-    </section>
-
-    <footer class="py-12 mt-12 bg-slate-900 text-center rounded-t-[3rem]">
-        <p class="text-slate-400 font-medium text-lg">期待交流与合作：<span id="myEmail" class="text-cyan-400 font-bold">加载中...</span></p>
-    </footer>
-
-    <script>
-        // 1. 基础信息配置
-        const siteData = {
-            name: "刘禧杰",
-            title: "产品运营 / 商业化操盘手",
-            description: "具备全周期产品运营能力，深度参与《这城有良田》等项目的全链路运营。擅长通过数据监控与用户研究驱动决策，实现从 KPI 拆解到营收落地的商业化闭环。",
-            email: "13268223198@163.com", // 替换为你的真实邮箱
-            
-            // 【重点！】在这里填入你上传到 GitHub 的 PDF 简历链接
-            resumePdfLink: "https://你的用户名.github.io/你的简历名字.pdf" 
-        };
-
-        // 2. 简历模块配置
-        const resumeData = {
-            // 请在此处替换为你的个人形象照
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", 
-            highlight: "懂业务、精数据、强落地的实战派运营",
-            content: "擅长运用数数等分析工具，搭建数据监控体系，挖掘用户需求并驱动产品迭代。拥有丰富的 SOP 制定经验与极强的执行力，能高效打通研发与市场的协同闭环。不仅能落地游戏内核心机制调优，更有从0到1搭建抖音小黄车等外部商业化阵地的成功实操经验。自带极强自驱力，善用新技术（如 AI 脚本）突破业务瓶颈。"
-        };
-
-        // 3. 项目作品集配置
-        const myWorks = [
-            {
-                title: "《这城》全生命周期运营与调优",
-                desc: "负责《这城有良田》从上线到成熟期的全链路运营。建立“玩家反馈-研发优化”闭环，输出30+份调优方案；主导线上/线下活动策划，量化评估ROI并确保单次大促目标达成。",
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-                fileLink: "" // 如果该项目有单独的复盘PPT，填在这里
-            },
-            {
-                title: "抖音小黄车商业化从0到1",
-                desc: "全流程主导“抖音小黄车”商业模式的落地执行。涵盖前端商品选品、营销转化路径设计，至后端售后流程梳理，成功建立了一套完整的抖店经营体系。",
-                image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
-                fileLink: "" 
-            },
-            {
-                title: "海外竞品调研与商业化生态评估",
-                desc: "负责斗鱼日本平台核心数据统计分析；深度拆解中东、东南亚等多地区社交竞品（17live, Yalla等），并主导完成网易、腾讯等20+款游戏合作对象的引入评估与落地执行。",
-                image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&q=80",
-                fileLink: ""
-            }
-        ];
-
-        // =================================================================
-        // 渲染引擎 (不需要修改)
-        // =================================================================
-        document.getElementById('navName').innerText = siteData.name;
-        document.getElementById('myName').innerText = siteData.name;
-        document.getElementById('myTitle').innerText = siteData.title;
-        document.getElementById('myDesc').innerText = siteData.description;
-        document.getElementById('myEmail').innerText = siteData.email;
-
-        // 渲染全局简历下载按钮
-        const resumeBtn = document.getElementById('globalResumeBtn');
-        if(siteData.resumePdfLink && siteData.resumePdfLink !== "") {
-            resumeBtn.href = siteData.resumePdfLink;
-            resumeBtn.classList.remove('hidden');
-        }
-
-        // 渲染简历模块
-        document.getElementById('resumeImage').src = resumeData.image;
-        document.getElementById('resumeHighlight').innerText = resumeData.highlight;
-        document.getElementById('resumeContent').innerText = resumeData.content;
-
-        // 渲染作品集
-        const container = document.getElementById('portfolio-container');
-        myWorks.forEach(work => {
-            const card = document.createElement('div');
-            card.className = "bg-white/80 backdrop-blur-lg rounded-3xl p-5 shadow-xl shadow-slate-200/50 border border-white hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 group flex flex-col";
-            
-            let buttonHtml = '';
-            if (work.fileLink && work.fileLink !== "") {
-                buttonHtml = `<a href="${work.fileLink}" target="_blank" class="mt-5 inline-block text-center px-4 py-3 bg-slate-50 text-cyan-600 rounded-xl text-sm font-bold border border-cyan-100 hover:bg-cyan-500 hover:text-white transition-colors duration-300">📄 查看项目复盘 (PDF)</a>`;
-            }
-
-            card.innerHTML = `
-                <div class="overflow-hidden rounded-2xl mb-5 relative">
-                    <img src="${work.image}" class="w-full h-52 object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                </div>
-                <div class="px-2 pb-2 flex-grow flex flex-col">
-                    <h3 class="font-extrabold text-xl mb-3 text-slate-800">${work.title}</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed flex-grow">${work.desc}</p>
-                    ${buttonHtml}
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    </script>
-</body>
-</html>
+    <nav class="w-full fixed top-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col items-center justify-center gap-4">
+            <div class="space-x-10 text-xs font-bold tracking-[0.15em] uppercase text-gray-400">
+                <a href="#resume" class="hover:text-[#0A2540] transition-colors">关于我</a>
+                <a href="#" class="text-[#0A2540] tracking-widest text-sm" id="navName">加载中...</a>
+                <a href="#portfolio"
