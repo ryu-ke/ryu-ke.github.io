@@ -39,4 +39,140 @@
             <div class="space-x-10 text-xs font-bold tracking-[0.15em] uppercase text-gray-400">
                 <a href="#resume" class="hover:text-[#0A2540] transition-colors">关于我</a>
                 <a href="#" class="text-[#0A2540] tracking-widest text-sm" id="navName">加载中...</a>
-                <a href="#portfolio"
+                <a href="#portfolio" class="hover:text-[#0A2540] transition-colors">核心项目</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="w-full pt-48 pb-32 px-4 flex flex-col items-center text-center max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-8 tracking-tight tech-primary" id="myName">加载中...</h1>
+        <div class="mb-10 flex flex-col items-center">
+            <span class="w-12 h-0.5 bg-tech-primary mb-6"></span>
+            <p class="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-[#1A1A1A]" id="myTitle">加载中...</p>
+        </div>
+        <p class="text-lg text-gray-500 leading-relaxed mb-16 max-w-2xl font-light" id="myDesc">加载中...</p>
+        
+        <a id="globalResumeBtn" href="#" target="_blank" class="hidden inline-flex items-center gap-3 px-10 py-4 bg-tech-primary text-white text-sm font-medium tracking-widest uppercase hover-tech-secondary transition-colors duration-300">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            获取完整简历 PDF
+        </a>
+    </header>
+
+    <section id="resume" class="w-full py-24 border-t border-gray-100 flex flex-col items-center">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
+            <img id="resumeImage" src="" alt="个人形象" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mb-12 shadow-sm">
+            
+            <h2 class="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-6">Professional Profile</h2>
+            <h3 class="text-2xl md:text-3xl font-bold tech-primary mb-8" id="resumeHighlight">加载中...</h3>
+            <p class="text-base text-gray-500 leading-loose max-w-3xl mb-12 font-light" id="resumeContent">加载中...</p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-6 py-2 border border-gray-200 text-[#1A1A1A] text-xs font-semibold tracking-widest uppercase">全周期产品运营</span>
+                <span class="px-6 py-2 border border-gray-200 text-[#1A1A1A] text-xs font-semibold tracking-widest uppercase">数据分析(数数)</span>
+                <span class="px-6 py-2 border border-gray-200 text-[#1A1A1A] text-xs font-semibold tracking-widest uppercase">商业化落地</span>
+                <span class="px-6 py-2 border border-gray-200 text-[#1A1A1A] text-xs font-semibold tracking-widest uppercase">跨部门协同</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="w-full py-32 border-t border-gray-100 flex flex-col items-center">
+        <div class="max-w-7xl mx-auto px-4 w-full">
+            <div class="flex flex-col items-center mb-20 text-center">
+                <span class="w-8 h-0.5 bg-gray-300 mb-6"></span>
+                <h2 class="text-3xl font-black tech-primary tracking-tight">业务实战复盘</h2>
+            </div>
+            
+            <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12">
+                </div>
+        </div>
+    </section>
+
+    <footer class="w-full py-20 bg-[#f9fafb] border-t border-gray-100 text-center flex flex-col items-center">
+        <h2 class="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Contact</h2>
+        <p class="text-lg text-[#1A1A1A] font-light">期待交流与合作：<span id="myEmail" class="tech-primary font-bold ml-2">加载中...</span></p>
+        <p class="text-xs text-gray-400 mt-12 font-light tracking-widest uppercase">© 2026 Designed with Minimalism</p>
+    </footer>
+
+    <script>
+        const siteData = {
+            name: "刘禧杰",
+            title: "产品运营 / 商业化操盘手",
+            description: "具备全周期产品运营能力，深度参与《这城有良田》等项目的全链路运营。擅长通过数据监控与用户研究驱动决策，实现从 KPI 拆解到营收落地的商业化闭环。",
+            email: "13268223198@163.com",
+            resumePdfLink: "https://你的用户名.github.io/你的简历名字.pdf" 
+        };
+
+        const resumeData = {
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", 
+            highlight: "懂业务、精数据、强落地的实战派运营",
+            content: "擅长运用数数等分析工具，搭建数据监控体系，挖掘用户需求并驱动产品迭代。拥有丰富的 SOP 制定经验与极强的执行力，能高效打通研发与市场的协同闭环。不仅能落地游戏内核心机制调优，更有从0到1搭建抖音小黄车等外部商业化阵地的成功实操经验。自带极强自驱力，善用新技术突破业务瓶颈。"
+        };
+
+        const myWorks = [
+            {
+                title: "《这城》全生命周期运营与调优",
+                desc: "负责《这城有良田》从上线到成熟期的全链路运营。建立“玩家反馈-研发优化”闭环，输出30+份调优方案；主导线上/线下活动策划，量化评估ROI并确保单次大促目标达成。",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+                fileLink: "" 
+            },
+            {
+                title: "抖音小黄车商业化从0到1",
+                desc: "全流程主导“抖音小黄车”商业模式的落地执行。涵盖前端商品选品、营销转化路径设计，至后端售后流程梳理，成功建立了一套完整的抖店经营体系。",
+                image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
+                fileLink: "" 
+            },
+            {
+                title: "海外竞品调研与商业化生态",
+                desc: "负责斗鱼日本平台核心数据统计分析；深度拆解中东、东南亚等多地区社交竞品，并主导完成网易、腾讯等20+款游戏合作对象的引入评估与落地执行。",
+                image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80",
+                fileLink: ""
+            }
+        ];
+
+        // =================================================================
+        // 渲染引擎 (底层 DOM 逻辑完好保留，仅对生成的卡片 HTML 结构进行了 UI 重构)
+        // =================================================================
+        document.getElementById('navName').innerText = siteData.name;
+        document.getElementById('myName').innerText = siteData.name;
+        document.getElementById('myTitle').innerText = siteData.title;
+        document.getElementById('myDesc').innerText = siteData.description;
+        document.getElementById('myEmail').innerText = siteData.email;
+
+        const resumeBtn = document.getElementById('globalResumeBtn');
+        if(siteData.resumePdfLink && siteData.resumePdfLink !== "") {
+            resumeBtn.href = siteData.resumePdfLink;
+            resumeBtn.classList.remove('hidden');
+            resumeBtn.classList.add('inline-flex');
+        }
+
+        document.getElementById('resumeImage').src = resumeData.image;
+        document.getElementById('resumeHighlight').innerText = resumeData.highlight;
+        document.getElementById('resumeContent').innerText = resumeData.content;
+
+        const container = document.getElementById('portfolio-container');
+        myWorks.forEach(work => {
+            const card = document.createElement('div');
+            // 卡片外层：移除所有阴影与边框，依靠内容本身撑开布局，文字严格居中
+            card.className = "flex flex-col items-center text-center group";
+            
+            let buttonHtml = '';
+            if (work.fileLink && work.fileLink !== "") {
+                // 附件按钮：极简线框按钮，悬浮时反色为深蓝
+                buttonHtml = `<a href="${work.fileLink}" target="_blank" class="mt-8 inline-block border border-[#0A2540] text-[#0A2540] px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#0A2540] hover:text-white transition-colors duration-300">View Document</a>`;
+            }
+
+            card.innerHTML = `
+                <div class="w-full overflow-hidden mb-8 bg-gray-50 relative">
+                    <img src="${work.image}" class="w-full h-64 object-cover editorial-image">
+                </div>
+                <div class="px-2 flex flex-col items-center flex-grow w-full">
+                    <h3 class="font-bold text-xl mb-4 text-[#1A1A1A]">${work.title}</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed flex-grow max-w-sm font-light">${work.desc}</p>
+                    ${buttonHtml}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
