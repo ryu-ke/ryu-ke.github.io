@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <header class="pt-20 pb-12 px-4 text-center bg-white shadow-sm">
+        <h1 class="text-4xl font-extrabold mb-4" id="myName">加载中...</h1>
+        <p class="text-xl text-gray-500 mb-6" id="myTitle">加载中...</p>
+        <p class="max-w-2xl mx-auto text-gray-600" id="myDesc">加载中...</p>
+    </header>
+
+    <section class="py-16">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 border-l-4 border-blue-500 pl-3">我的作品集</h2>
+            <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-gray-900 text-white text-center">
+        <p>联系我：<span id="myEmail" class="text-blue-400">加载中...</span></p>
+    </footer>
+
+    <script>
+        // 1. 基础信息配置
+        const siteData = {
+            name: "你的名字",
+            title: "资深运营 / 项目管理者",
+            description: "拥有丰富的跨部门协同与渠道发行经验，擅长数据分析与平台生态运营。",
+            email: "yourname@example.com"
+        };
+
+        // 2. 作品集数据配置（每次有新作品，就在这里面加一段）
+        const myWorks = [
+            {
+                title: "某游戏公测发行复盘",
+                desc: "全面梳理了各包体的活跃情况与渠道转化率，为后续推更提供数据支撑。",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" // 这里换成你的图片链接
+            },
+            {
+                title: "平台活动落地策划",
+                desc: "主导平台会员奖励配置与验收，打通了游戏内与平台侧的交互闭环。",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80"
+            },
+            {
+                title: "大盘营收监控模型",
+                desc: "搭建每日流水缺口监控看板，精准定位进度落后原因。",
+                image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80"
+            }
+        ];
+
+        // =================================================================
+        // 下面的代码是“自动渲染引擎”，不用管它，绝对不要改！
+        // =================================================================
+        document.getElementById('myName').innerText = siteData.name;
+        document.getElementById('myTitle').innerText = siteData.title;
+        document.getElementById('myDesc').innerText = siteData.description;
+        document.getElementById('myEmail').innerText = siteData.email;
+
+        const container = document.getElementById('portfolio-container');
+        myWorks.forEach(work => {
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300";
+            card.innerHTML = `
+                <img src="${work.image}" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">${work.title}</h3>
+                    <p class="text-gray-600 text-sm">${work.desc}</p>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
